@@ -1,9 +1,18 @@
 label {
     display: block;
     margin: 24px 16px 10px;
+
 }
 
-.button {
-    display: block;
-    margin: 50px 25px;
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px 10px;
+}
+
+
+button {
+    margin: 15px;
 }
