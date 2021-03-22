@@ -19,7 +19,7 @@ function App() {
     }
 
 //deze functie vervangen met de react-hook-form, betekent e.preventDefault verwijderen, en onsubmit wrappen
-//met handleSubmit {handleSubmit(onSumbit)} zie form attr. handleSubmit haalt ook data op
+//met handleSubmit {handleSubmit(onSumbit)} zie form attr. handleSubmit haalt ook data op en geeft weer in console
 
 
     function resetAll() {
@@ -34,96 +34,89 @@ function App() {
             <h1>Fruitmand bezorgservice</h1>
 
             <main>
-                <fieldset>
-
-                    <div className="container">
-                        <h2 className="product-name">🍓 Aarbeien
-                            <button type="button"
-                                    onClick={() => setCounterAardbei(counterAardbei - 1)}
-                            >
-                                -
-                            </button>
-
-                            {counterAardbei}
-
-                            <button type="button"
-                                    onClick={() => setCounterAardbei(counterAardbei + 1)}
-                            >
-                                +
-                            </button>
-                        </h2>
-                    </div>
-                </fieldset>
 
 
-                <fieldset>
-                    <div className="container">
-                        <h2 className="product-name"> 🍌 Bananen
-                            <button type="button"
-                                    onClick={() => setCounterBanaan(counterBanaan - 1)}
-                            >
-                                -
-                            </button>
-                            {counterBanaan}
-                            <button type="button"
-                                    onClick={() => setCounterBanaan(counterBanaan + 1)}
-                            >
-                                +
-                            </button>
-                        </h2>
-                    </div>
-                </fieldset>
+                <div className="container">
+                    <h2 className="product-name">🍓 Aarbeien
+                        <button type="button"
+                                onClick={() => counterAardbei > 0 && setCounterAardbei(counterAardbei - 1)}
+                        >
+                            -
+                        </button>
 
-                <fieldset>
-                    <div className="container">
-                        <h2 className="product-name"> 🍏 Appels
-                            <button type="button"
-                                    onClick={() => setCounterAppel(counterAppel - 1)}
-                            >
-                                -
-                            </button>
-                            {counterAppel}
-                            <button type="button"
-                                    onClick={() => setCounterAppel(counterAppel + 1)}
-                            >
-                                +
-                            </button>
-                        </h2>
-                    </div>
-                </fieldset>
+                        {counterAardbei}
 
-                <fieldset>
-                    <div className="container">
-                        <h2 className="product-name"> 🥝 Kiwi's
-                            <button type="button"
-                                    onClick={() => setCounterKiwi(counterKiwi - 1)}
-                            >
-                                -
-                            </button>
-                            {counterKiwi}
-                            <button type="button"
-                                    onClick={() => setCounterKiwi(counterKiwi + 1)}
-                            >
-                                +
-                            </button>
-                        </h2>
-                    </div>
-                </fieldset>
+                        <button type="button"
+                                onClick={() => setCounterAardbei(counterAardbei + 1)}
+                        >
+                            +
+                        </button>
+                    </h2>
+                </div>
 
+
+                <div className="container">
+                    <h2 className="product-name"> 🍌 Bananen
+                        <button type="button"
+                                onClick={() => counterBanaan > 0 &&setCounterBanaan(counterBanaan - 1)}
+                        >
+                            -
+                        </button>
+                        {counterBanaan}
+                        <button type="button"
+                                onClick={() => setCounterBanaan(counterBanaan + 1)}
+                        >
+                            +
+                        </button>
+                    </h2>
+                </div>
+
+
+                <div className="container">
+                    <h2 className="product-name"> 🍏 Appels
+                        <button type="button"
+                                onClick={() => counterAppel > 0 && setCounterAppel(counterAppel - 1)}
+                        >
+                            -
+                        </button>
+                        {counterAppel}
+                        <button type="button"
+                                onClick={() => setCounterAppel(counterAppel + 1)}
+                        >
+                            +
+                        </button>
+                    </h2>
+                </div>
+
+
+                <div className="container">
+                    <h2 className="product-name"> 🥝 Kiwi's
+                        <button type="button"
+                                onClick={() => counterKiwi > 0 && setCounterKiwi(counterKiwi - 1)}
+                        >
+                            -
+                        </button>
+                        {counterKiwi}
+                        <button type="button"
+                                onClick={() => setCounterKiwi(counterKiwi + 1)}
+                        >
+                            +
+                        </button>
+                    </h2>
+                </div>
 
             </main>
 
-
-            <div className="button"/>
-
             <button
-
+                className="container"
                 type="reset"
                 onClick={resetAll}>
                 Reset
             </button>
 
             {/*Formulier met react hook */}
+
+            <h3> Uw gegevens 👽 </h3>
 
             <div className="form-container">
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -211,7 +204,11 @@ function App() {
 
                     <label htmlFor="conditions">
                         <input
+                            ref={register({required: true})}
+                            id="conditions"
                             type="checkbox"
+                            name="checkbox"
+
                         />
                         Ik ga akkoord met de voorwaarden
                     </label>
@@ -232,7 +229,6 @@ function App() {
         </>
     );
 }
-
 
 
 export default App;
