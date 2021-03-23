@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import {useForm} from "react-hook-form";
 
+
+
 function App() {
     const {register, handleSubmit, errors, watch} = useForm();
     const gekozenAndereBezorging = watch('bezorging');
@@ -140,10 +142,23 @@ function App() {
                     {errors.leeftijd && <p>this input is requierd, min 18 years</p>}
 
                     <label>Postcode
-                        <input ref={register({required: true})} type="number" name="postcode"
-                               placeholder="uw postcode"/></label>
+                        <input
+                            name="postcode"
+                            placeholder="uw postcode"
+                            ref={register({
+                                pattern: {
+                                    value:/[0-90-90-90-9A-ZA-Z]/,
+                                    message:
+                                    "Please write as 1016CH"
+                                }
+                            })}
+                        />
+                    </label>
 
-                    {errors.postcode && <p>this input is requierd</p>}
+                    {/*{errors.postcode && <p>this input is requierd</p>}*/}
+                    {errors.postcode ?.message && <p>{errors.postcode?.message}</p>}
+
+
 
                     <label>Huisnummer
                         <input ref={register({required: true})} type="number" name="huisnummer"
@@ -213,18 +228,20 @@ function App() {
                         Ik ga akkoord met de voorwaarden
                     </label>
 
-                    {errors.conditions && <p>Please agree with our terms and conditions</p>}
+                    {errors.checkbox && <p>Please agree with our terms and conditions</p>}
 
                     <button
+                        className="container"
                         type="submit"
                         name="send"
                     >
                         Verzenden
                     </button>
 
-
                 </form>
             </div>
+
+
 
         </>
     );

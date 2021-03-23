@@ -2,6 +2,7 @@ body {
     background-color: darkseagreen;
     font-family: "Courier New";
     text-space: 1px;
+    font-size: 20px;
 }
 
 label {
@@ -46,4 +47,9 @@ h1 {
 h3 {
     display: flex;
     justify-content: center;
+}
+
+.send-button {
+
+
 }
