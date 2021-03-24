@@ -1,0 +1,55 @@
+body {
+    background-color: darkseagreen;
+    font-family: "Courier New";
+    text-space: 1px;
+    font-size: 20px;
+}
+
+label {
+    display: block;
+    margin: 24px 16px 10px;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px 10px;
+    border: 0.5rem solid peachpuff;
+    border-radius: 50px;
+    width: auto;
+    background-color: antiquewhite;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px 10px;
+    border: 0.5rem solid peachpuff;
+    border-radius: 50px;
+    width: auto;
+    background-color: antiquewhite;
+}
+
+button {
+    margin: 15px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+}
+
+.send-button {
+
+
+}
